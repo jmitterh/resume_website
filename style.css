@@ -1,0 +1,384 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+
+html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    color: rgb(10, 5, 5);
+}
+
+body {
+    position: relative;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 1) 100%
+    ), 
+    url('background.png') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+/* If you still want to use ::before, then make sure you add a higher z-index to content that should be on top */
+.main-content, .sidebar, .main-content h1, .main-content p, .sidebar a, .sidebar .logo {
+    position: relative;
+    z-index: 1; /* Higher than the background z-index */
+}
+
+/* Apply the gradient text effect only to elements with the 'gradient-text' class */
+.gradient-text {
+    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* For elements that should have the gradient clipped to the text */
+.shadow-text-j, .shadow-text-p {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for non-WebKit browsers */
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #111; /* Darker than body background for contrast */
+    color: #fff;
+    padding-top: 5px; /* Reduced top padding */
+    padding: 20px 0;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center nav-links items horizontally */
+    width: 100%; /* Ensure nav-links take the full width of the sidebar */
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    display: block;
+    width: 100%; /* Full width */
+    padding: 15px ; /* Apply padding here */
+    box-sizing: border-box; /* Include padding in width */
+    margin: -10px 0;
+    
+}
+
+/* Style for active navigation link */
+.nav-links a.active {
+    background-color: #e63946;
+    color: #fff;
+}
+
+/* Using <p> to center words */
+.nav-links a p {
+    text-decoration: none;
+    position: static;
+    color: #ddd;
+    display: block;
+    padding: 0 50px ; /* Apply padding here */
+    box-sizing: border-box; /* Include padding in width */
+    margin: 0px 0;
+    
+}
+
+.nav-links a:hover {
+    background-color: #e63946;
+    /* background: linear-gradient(
+        to bottom, 
+        rgb(15, 13, 13) 0%, 
+        rgba(150, 20, 20) 50%, 
+        rgb(29, 16, 16) 100%
+    ); */
+    color: #fff;
+    width: 100%; 
+    padding: 15px 15px; /* Apply padding here */
+    transition: background-color 2.3s, color 0.3s;
+
+}
+
+/* JP logo effect */
+.logo {
+    margin-top: -0px; /* Adjust the value as needed to move it higher */
+    position: absolute; /* Position it absolutely within the sidebar */
+    top: 10px; /* Move it to 10px from the top or any value you see fit */
+    left: 5%; /* Center it horizontally */
+    transform: translateX(0); /* Adjust horizontal position to truly center it */
+    font-size: 4em; /* Adjust the size as needed */
+}
+
+.logo h6 {
+    text-decoration: none;
+    position: relative; /* Position it absolutely within the sidebar */
+    top: 0px; /* Move it to 10px from the top or any value you see fit */
+    left: -15px; /* Center it horizontally */
+    transition: color 0.2s ease-in-out;
+}
+
+.logo h6:hover {
+    color: #e63946; /*Hover color for links */
+    transition: background-color 0.0s, color 1.3s;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* .sidebar a:hover {
+    color: rgb(0, 0, 0); /* Hover color for links
+} */
+
+/* Social icons */
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.socials a {
+    color: #888; /* Icon color */
+    font-size: 1.5em;
+    margin-right: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+.socials a:hover {
+    color: #e63946; /* Icon hover color */
+    transition: background-color 0.0s, color 1.0s;
+}
+
+/* J color effect for Jean Paul*/
+.shadow-text-j {
+    font-size: 1em;
+    color: transparent;
+    position: relative;
+    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+
+.shadow-text-j::before, .shadow-text-j::after {
+    content: 'J';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: -1;
+    transform-style: preserve-3d;
+}
+
+.shadow-text-j::before {
+    transform: translateZ(-1px) skewY(-2deg);
+    text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
+}
+
+.shadow-text-j::after {
+    transform: translateZ(1px) skewY(2deg);
+    text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
+}
+
+/* P color effect for Jean Paul*/
+.shadow-text-p {
+    font-size: 1em;
+    color: transparent;
+    position: relative;
+    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+
+.shadow-text-p::before, .shadow-text-p::after {
+    content: 'P';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: -1;
+    transform-style: preserve-3d;
+}
+
+.shadow-text-p::before {
+    transform: translateZ(-1px) skewY(-2deg);
+    text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
+}
+
+.shadow-text-p::after {
+    transform: translateZ(1px) skewY(2deg);
+    text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 120px; /* Should match sidebar width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    width: calc(100% - 200px); /* Subtract the width of the sidebar */
+    margin-bottom: -400px;
+}
+
+.main-content header {
+    /* Ensure there's space for all elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.main-content h1 {
+    /* Adjust font size and weight as needed */
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 0.5em; /* Add space below the header */
+    color: white; /* Ensure the text is white */
+}
+
+.main-content p {
+    /* Subheading style */
+    font-size: 1.2em;
+    color: white; /* Ensure the subheading text is white */
+    margin-bottom: 1em; /* Add space below the subheading */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        padding: 10px;
+        justify-content: space-around;
+    }
+    
+    .container {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .main-content h1 {
+        font-size: 2.5em; /* Adjust font size for smaller screens */
+    }
+
+    .main-content p {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    .socials a {
+        font-size: 1em; /* Adjust icon size for smaller screens */
+    }
+
+}
+
+/* Ensure high z-index for sidebar and main content */
+.sidebar {
+    z-index: 1000; /* Ensure sidebar is above other elements */
+}
+
+.card {
+    /* position: relative; */
+    z-index: 10; /* Any value higher than the sidebar's z-index */
+  }
+
+#contact {
+z-index: 11; /* Arbitrarily high value */
+position: relative; /* z-index works on positioned elements */
+}
+
+/* Style for form inputs */
+input.form-control,
+textarea.form-control {
+  color: #000; /* or any color you prefer */
+}
+
+/* Style for form labels */
+label.form-label {
+  color: #fff; /* if you want the labels to be white */
+}
+
+.row {
+    margin-left: 200px
+}
+
+/* Loading Page */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 7, 7, 0.9);
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 700px; ;
+    align-items: center;
+    z-index: 12; /* Ensure it's above everything else */
+  }
+  
+  .spinner {
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } 

@@ -1,0 +1,2 @@
+- Assisted in the development of the RMS application: An energy management application for energy managers in the Texas region. Utilized programming languages and frameworks such as Plotly Dash, React, HTML, and Bootstrap.Communicate with upper management to assign and manage web developers for the management of the technical infrastructure of fulling web services the RMS application offers.
+- Executed with a team the deployment of the RMS application and the deployment of updates using WAMP which manages our live websites.
