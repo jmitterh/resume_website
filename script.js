@@ -55,8 +55,18 @@ document.addEventListener('DOMContentLoaded', function() {
     Promise.all(markdownPromises).then(() => {
         hideSpinner();
         highlightActiveLink();
-    });
+
+  // Select the hamburger icon
+  const hamburger = document.getElementById('hamburger-menu');
+  const sidebar = document.querySelector('.sidebar');
+
+  // Toggle the 'active' class on the sidebar when the hamburger icon is clicked
+  hamburger.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
+  }
+)});
 });
+
 // Fetch & Display Markdown
 function fetchAndDisplayMarkdown(elementId, filePath) {
     const element = document.getElementById(elementId);

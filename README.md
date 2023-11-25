@@ -11,6 +11,7 @@ This repository can run locally from an IDE. Need to install an Addon such as [L
 ## Usage
 - All html, css, and javascript are on root directory. 
 - All written summaries are stored in folder `cards_markdown`.
+- sendemail.php has not been tested or used as of yet.
 
 
 ## Dependencies

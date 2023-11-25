@@ -289,45 +289,84 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        padding: 10px;
-        justify-content: space-around;
-    }
-    
-    .container {
-        margin-left: 0;
-        width: 100%;
-        justify-content: center;
+        transform: translateX(-100%); /* Hide sidebar off-screen */
+        transition: transform 0.3s ease-in-out;
+        width: 60px; /* Or width: 0; to hide */
+        padding: 10px 0; /* Reduced padding */
+        justify-content: start; /* Align items to the start */
+        /* You may want to add an overflow-x: hidden; if you're hiding the sidebar */
     }
 
+    .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
+        display: none; /* Hide elements within the sidebar */
+    }
+
+    .nav-links p {
+        display: none;
+    }
+    .sidebar .logo {
+        display: block; /* or flex, depending on your layout*/
+    }
     .main-content {
         margin-left: 0;
-        width: 100%;
-        height: auto;
-        padding: 20px;
+        padding: 10px; /* Add padding */
+        width: 100%; /* Take full width */
+        height: auto; /* Adjust height */
     }
 
     .main-content h1 {
-        font-size: 2.5em; /* Adjust font size for smaller screens */
+        font-size: 2em; /* Smaller font size */
     }
 
     .main-content p {
-        font-size: 1em; /* Adjust font size for smaller screens */
+        font-size: 1em; /* Smaller font size */
     }
 
-    .socials a {
-        font-size: 1em; /* Adjust icon size for smaller screens */
+    .nav-links a, .socials a {
+        font-size: 1.2em; /* Larger font size for touch targets */
     }
 
+    /* Styles to ensure form elements are visible and labels are correctly colored */
+    input.form-control,
+    textarea.form-control {
+        color: #333; /* Dark color for text */
+    }
+
+    label.form-label {
+        color: #ccc; /* Light color for labels */
+    }
+
+    /* Other responsive adjustments as needed */
+}
+
+/* Hamburger Menu Icon Styling */
+.hamburger {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001; /* Above the sidebar */
+    cursor: pointer; /* Changes the mouse cursor when hovering over the icon */
+  }
+  
+/* Show hamburger icon on smaller screens */
+@media (max-width: 768px) {
+.hamburger {
+    display: block; /* Show the hamburger icon */
+}
 }
 
 /* Ensure high z-index for sidebar and main content */
 .sidebar {
     z-index: 1000; /* Ensure sidebar is above other elements */
-}
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
+  }
+
+/* Sidebar Active State */
+.sidebar.active {
+    transform: translateX(0); /* Slide in */
+  }
 
 .card {
     /* position: relative; */
@@ -363,8 +402,8 @@ label.form-label {
     height: 100%;
     background: rgba(8, 7, 7, 0.9);
     display: flex;
-    justify-content: flex-start;
-    padding-left: 700px; ;
+    justify-content: center;
+    padding-left: 250px; ;
     align-items: center;
     z-index: 12; /* Ensure it's above everything else */
   }
@@ -382,3 +421,8 @@ label.form-label {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   } 
+
+  /* Side bar on phone */
+  body.sidebar-open .sidebar {
+    width: 200px; /* Adjust as needed */
+}
