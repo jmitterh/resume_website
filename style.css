@@ -16,7 +16,7 @@ body {
     background: linear-gradient(
         to bottom, 
         rgba(0, 0, 0, 1) 0%, 
-        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.9) 50%, 
         rgba(0, 0, 0, 1) 100%
     ), 
     url('background.png') no-repeat center center fixed; 
@@ -75,11 +75,6 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
-/* .sidebar a:hover {
-    color: rgb(0, 0, 0); /* Hover color for links
-} */
-
-
 .nav-links {
     display: flex;
     flex-direction: column;
@@ -96,14 +91,12 @@ body {
     padding: 15px ; /* Apply padding here */
     box-sizing: border-box; /* Include padding in width */
     margin: 0.5px 0;
-    
 }
 
 /* Style for active navigation link */
 .nav-links a.active {
     background-color: #e63946;
     color: #fff;
-
 }
 
 /* Using <p> to center words */
@@ -324,17 +317,14 @@ body {
     }
 
     .main-content p {
-        font-size: 1em; /* Smaller font size */
+        /* Subheading style */
+        font-size: 1.2em;
+        color: white; /* Ensure the subheading text is white */
+        margin-bottom: 1em; /* Add space below the subheading */
     }
 
     .nav-links a, .socials a {
         font-size: 1.2em; /* Larger font size for touch targets */
-    }
-
-    /* Styles to ensure form elements are visible and labels are correctly colored */
-    input.form-control,
-    textarea.form-control {
-        color: #333; /* Dark color for text */
     }
 
     label.form-label {
@@ -425,8 +415,12 @@ body {
         color: #fff; /* Adjust color if needed */
     }
 
-    .p {
-        font-size: 1em; /* Smaller font size */
+    p {
+        font-size: x-small; /* Smaller font size */
+    }
+    /* Buttons letters small */
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: x-small; 
     }
 
     /* sidebar buttons */
@@ -460,7 +454,6 @@ body {
 }
 
 
-
 .card {
     /* position: relative; */
     z-index: 10; /* Any value higher than the sidebar's z-index */
@@ -471,7 +464,7 @@ z-index: 11; /* Arbitrarily high value */
 position: relative; /* z-index works on positioned elements */
 }
 
-/* Style for form inputs */
+/* Style for form inputs contract_form.html*/
 input.form-control,
 textarea.form-control {
   color: #000; /* or any color you prefer */
@@ -481,8 +474,6 @@ textarea.form-control {
 label.form-label {
   color: #fff; /* if you want the labels to be white */
 }
-
-
 
 /* Loading Page */
 .loading-spinner {
