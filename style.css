@@ -63,6 +63,23 @@ body {
     justify-content: space-between;
 }
 
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* .sidebar a:hover {
+    color: rgb(0, 0, 0); /* Hover color for links
+} */
+
+
 .nav-links {
     display: flex;
     flex-direction: column;
@@ -78,7 +95,7 @@ body {
     width: 100%; /* Full width */
     padding: 15px ; /* Apply padding here */
     box-sizing: border-box; /* Include padding in width */
-    margin: -10px 0;
+    margin: 0.5px 0;
     
 }
 
@@ -86,6 +103,7 @@ body {
 .nav-links a.active {
     background-color: #e63946;
     color: #fff;
+
 }
 
 /* Using <p> to center words */
@@ -94,7 +112,7 @@ body {
     position: static;
     color: #ddd;
     display: block;
-    padding: 0 50px ; /* Apply padding here */
+    padding: 10px 0px 10px 50px;/* Apply padding here */
     box-sizing: border-box; /* Include padding in width */
     margin: 0px 0;
     
@@ -138,21 +156,6 @@ body {
     transition: background-color 0.0s, color 1.3s;
 }
 
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar a {
-    color: #ccc;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: color 0.2s ease-in-out;
-}
-
-/* .sidebar a:hover {
-    color: rgb(0, 0, 0); /* Hover color for links
-} */
 
 /* Social icons */
 .socials {
@@ -269,6 +272,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 200%
 }
 
 .main-content h1 {
@@ -286,36 +290,36 @@ body {
     margin-bottom: 1em; /* Add space below the subheading */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Desktop view - Responsive adjustments */
+@media (min-width: 769px) {
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
     .sidebar {
-        transform: translateX(-100%); /* Hide sidebar off-screen */
-        transition: transform 0.3s ease-in-out;
-        width: 60px; /* Or width: 0; to hide */
-        padding: 10px 0; /* Reduced padding */
-        justify-content: start; /* Align items to the start */
-        /* You may want to add an overflow-x: hidden; if you're hiding the sidebar */
+        background-color: #111; /* Darker than body background for contrast */
+        color: #fff;
+        padding-top: 5px; /* Reduced top padding */
+        padding: 20px 0;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 200px; /* Adjust as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
-        display: none; /* Hide elements within the sidebar */
+        display: flex;  /*Hide elements within the sidebar */
     }
 
-    .nav-links p {
-        display: none;
-    }
     .sidebar .logo {
         display: block; /* or flex, depending on your layout*/
-    }
-    .main-content {
-        margin-left: 0;
-        padding: 10px; /* Add padding */
-        width: 100%; /* Take full width */
-        height: auto; /* Adjust height */
-    }
-
-    .main-content h1 {
-        font-size: 2em; /* Smaller font size */
     }
 
     .main-content p {
@@ -336,7 +340,10 @@ body {
         color: #ccc; /* Light color for labels */
     }
 
-    /* Other responsive adjustments as needed */
+    /* Make room for side bar */
+    .row {
+        margin-left: 200px
+    }
 }
 
 /* Hamburger Menu Icon Styling */
@@ -349,23 +356,98 @@ body {
     cursor: pointer; /* Changes the mouse cursor when hovering over the icon */
   }
   
-/* Show hamburger icon on smaller screens */
+/* Mobile View - Show hamburger icon on smaller screens */
 @media (max-width: 768px) {
-.hamburger {
-    display: block; /* Show the hamburger icon */
-}
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+
+    /* .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
+        display: none;  /*Hide elements within the sidebar 
+    } */
+    .logo {
+        margin-top: 0px;
+        top: 10px;
+        left: 15%;
+        transform: translateX(0);
+        font-size: 4em;
+    }
+
+    .sidebar {
+        background-color: #111; /* Darker than body background for contrast */
+        color: #fff;
+        padding-top: 5px; /* Reduced top padding */
+        padding: 20px 0;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100px; /* Adjust as needed */
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transform: translateX(-100%); /* Start off-screen */
+
+    }
+
+
+    /* Sidebar Active State */
+    .sidebar.active {
+        z-index: 1000; /* Ensure sidebar is above other elements */
+        transform: translateX(0%); /* Slide out */
+        transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
+    }
+
+    .main-content {
+        margin-left: 0px; /* Should match sidebar width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        text-align: center;
+        width: calc(130% - 100px); /* Subtract the width of the sidebar */
+        margin-bottom: -400px;
+    }
+    
+    .main-content header{
+        margin-left: -20px;
+        padding: 0px; /* Add padding */
+        width: 100%; /* Take full width */
+        height: 0%; /* Adjust height */
+    }
+
+    .main-content h1 {
+        display: block; /* Ensure it's not set to 'none' */
+        font-size: 2em; /* Adjust as needed for mobile */
+        color: #fff; /* Adjust color if needed */
+    }
+
+    .p {
+        font-size: 1em; /* Smaller font size */
+    }
+
+    .nav-links a p {
+        text-decoration: none;
+        position: static;
+        color: #ddd;
+        display: block;
+        padding: 10px 0px 10px 5px;
+        box-sizing: border-box;
+        margin: 0px 0;
+    }
+    .row {
+        margin-left: 80px
+    }
+
 }
 
 /* Ensure high z-index for sidebar and main content */
 .sidebar {
-    z-index: 1000; /* Ensure sidebar is above other elements */
-    transform: translateX(-100%); /* Start off-screen */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
-  }
 
-/* Sidebar Active State */
-.sidebar.active {
-    transform: translateX(0); /* Slide in */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
+ 
   }
 
 .card {
@@ -389,9 +471,7 @@ label.form-label {
   color: #fff; /* if you want the labels to be white */
 }
 
-.row {
-    margin-left: 200px
-}
+
 
 /* Loading Page */
 .loading-spinner {
@@ -421,8 +501,3 @@ label.form-label {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   } 
-
-  /* Side bar on phone */
-  body.sidebar-open .sidebar {
-    width: 200px; /* Adjust as needed */
-}
