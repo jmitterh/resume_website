@@ -298,6 +298,7 @@ body {
     }
 
     .sidebar {
+        z-index: 1000;
         background-color: #111; /* Darker than body background for contrast */
         color: #fff;
         padding-top: 5px; /* Reduced top padding */
@@ -407,7 +408,7 @@ body {
         flex-direction: column;
         height: 100vh;
         text-align: center;
-        width: calc(130% - 100px); /* Subtract the width of the sidebar */
+        width: calc(130% - 100px); /* Adjust for the header vs sidebar*/
         margin-bottom: -400px;
     }
     
@@ -428,6 +429,7 @@ body {
         font-size: 1em; /* Smaller font size */
     }
 
+    /* sidebar buttons */
     .nav-links a p {
         text-decoration: none;
         position: static;
@@ -437,18 +439,27 @@ body {
         box-sizing: border-box;
         margin: 0px 0;
     }
+
+    /* Adjust for sidebar */
     .row {
-        margin-left: 80px
+        margin-left: 0px;
+        transition: margin-left 0.3s ease-in-out; 
+    }
+
+    .row-sidebar-closed {
+        margin-left: 80px; /* Set to 0 or whatever value you prefer when sidebar is hidden */
+        transition: margin-left 0.3s ease-in-out; 
+    }
+
+    /* Remove padding from card */
+    .card-body {
+        flex: 1 1 auto;
+        padding:0;
     }
 
 }
 
-/* Ensure high z-index for sidebar and main content */
-.sidebar {
 
-    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
- 
-  }
 
 .card {
     /* position: relative; */
