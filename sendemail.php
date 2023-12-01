@@ -7,6 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     'Reply-To: ' . $email . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-    mail('your-email@example.com', 'New contact form submission', $message, $headers);
+    mail('jp86mitter@gmail.com', 'Website Contact Submission', $message, $headers);
 }
 ?>

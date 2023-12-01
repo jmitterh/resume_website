@@ -16,7 +16,7 @@ body {
     background: linear-gradient(
         to bottom, 
         rgba(0, 0, 0, 1) 0%, 
-        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.9) 50%, 
         rgba(0, 0, 0, 1) 100%
     ), 
     url('background.png') no-repeat center center fixed; 
@@ -63,6 +63,18 @@ body {
     justify-content: space-between;
 }
 
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
 .nav-links {
     display: flex;
     flex-direction: column;
@@ -78,8 +90,7 @@ body {
     width: 100%; /* Full width */
     padding: 15px ; /* Apply padding here */
     box-sizing: border-box; /* Include padding in width */
-    margin: -10px 0;
-    
+    margin: 0.5px 0;
 }
 
 /* Style for active navigation link */
@@ -94,7 +105,7 @@ body {
     position: static;
     color: #ddd;
     display: block;
-    padding: 0 50px ; /* Apply padding here */
+    padding: 10px 0px 10px 50px;/* Apply padding here */
     box-sizing: border-box; /* Include padding in width */
     margin: 0px 0;
     
@@ -138,21 +149,6 @@ body {
     transition: background-color 0.0s, color 1.3s;
 }
 
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar a {
-    color: #ccc;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: color 0.2s ease-in-out;
-}
-
-/* .sidebar a:hover {
-    color: rgb(0, 0, 0); /* Hover color for links
-} */
 
 /* Social icons */
 .socials {
@@ -269,6 +265,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 200%
 }
 
 .main-content h1 {
@@ -286,48 +283,236 @@ body {
     margin-bottom: 1em; /* Add space below the subheading */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Desktop view - Responsive adjustments */
+@media (min-width: 769px) {
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        padding: 10px;
-        justify-content: space-around;
-    }
-    
-    .container {
-        margin-left: 0;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-        height: auto;
-        padding: 20px;
+        z-index: 1000;
+        background-color: #111; /* Darker than body background for contrast */
+        color: #fff;
+        padding-top: 5px; /* Reduced top padding */
+        padding: 20px 0;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 200px; /* Adjust as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .main-content h1 {
-        font-size: 2.5em; /* Adjust font size for smaller screens */
+    .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
+        display: flex;  /*Hide elements within the sidebar */
+    }
+
+    .sidebar .logo {
+        display: block; /* or flex, depending on your layout*/
     }
 
     .main-content p {
-        font-size: 1em; /* Adjust font size for smaller screens */
+        /* Subheading style */
+        font-size: 1.2em;
+        color: white; /* Ensure the subheading text is white */
+        margin-bottom: 1em; /* Add space below the subheading */
     }
 
-    .socials a {
-        font-size: 1em; /* Adjust icon size for smaller screens */
+    .nav-links a, .socials a {
+        font-size: 1.2em; /* Larger font size for touch targets */
     }
+
+    label.form-label {
+        color: #ccc; /* Light color for labels */
+    }
+
+    /* Make room for side bar */
+    .row {
+        margin-left: 200px
+    }
+
+    .title h1  {
+        color: white;
+        padding: 150px 0% 0% 0%;
+    }
+
+/* Loading Page */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 7, 7, 0.9);
+    display: flex;
+    justify-content: center;
+    padding-left: 250px; ;
+    align-items: center;
+    z-index: 12; /* Ensure it's above everything else*/
+  }
 
 }
 
-/* Ensure high z-index for sidebar and main content */
-.sidebar {
-    z-index: 1000; /* Ensure sidebar is above other elements */
+/* Hamburger Menu Icon Styling */
+.hamburger {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1002; /* Above the sidebar */
+    cursor: pointer; /* Changes the mouse cursor when hovering over the icon */
+  }
+  
+/* Mobile View - Show hamburger icon on smaller screens */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+        color: white;
+    }
+
+    /* .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
+        display: none;  /*Hide elements within the sidebar 
+    } */
+    .logo {
+        margin-top: 0px;
+        top: 10px;
+        left: 15%;
+        transform: translateX(0);
+        font-size: 4em;
+    }
+
+    .sidebar {
+        background-color: #111; /* Darker than body background for contrast */
+        color: #fff;
+        padding-top: 5px; /* Reduced top padding */
+        padding: 20px 0;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100px; /* Adjust as needed */
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transform: translateX(-100%); /* Start off-screen */
+
+    }
+
+
+    /* Sidebar Active State */
+    .sidebar.active {
+        z-index: 1000; /* Ensure sidebar is above other elements */
+        transform: translateX(0%); /* Slide out */
+        transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
+    }
+
+    .main-content {
+        margin-left: 0px; /* Should match sidebar width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        text-align: center;
+        width: calc(130% - 100px); /* Adjust for the header vs sidebar*/
+        margin-bottom: -400px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    header, .col-12.w-auto.p-3 {
+      flex: 1 0 auto; /* This means the items can grow if needed, but won't shrink smaller than their content */
+    }
+
+    header {
+        margin-bottom: 2vh; /* Use viewport height to be responsive */
+    }
+      
+    .col-12.w-auto.p-3 {
+        padding-top: 2vh;
+    }
+
+    .main-content header{
+        margin-left: -20px;
+        padding: 0px; /* Add padding */
+        width: 100%; /* Take full width */
+        height: 0%; /* Adjust height */
+    }
+
+    .main-content h1 {
+        display: block; /* Ensure it's not set to 'none' */
+        font-size: 2em; /* Adjust as needed for mobile */
+        color: #fff; /* Adjust color if needed */
+    }
+    
+    .h1, h1 {
+        color: white;
+    }
+
+    p {
+        font-size: x-small; /* Smaller font size */
+    }
+    /* Buttons letters small */
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: x-small; 
+    }
+
+    /* sidebar buttons */
+    .nav-links a p {
+        text-decoration: none;
+        position: static;
+        color: #ddd;
+        display: block;
+        padding: 10px 0px 10px 5px;
+        box-sizing: border-box;
+        margin: 0px 0;
+    }
+
+    /* Adjust for sidebar */
+    .row {
+        margin-left: 0px;
+        transition: margin-left 0.3s ease-in-out; 
+    }
+
+    .row-sidebar-closed {
+        margin-left: 80px; /* Set to 0 or whatever value you prefer when sidebar is hidden */
+        transition: margin-left 0.3s ease-in-out; 
+    }
+
+    /* Remove padding from card */
+    .card-body {
+        flex: 1 1 auto;
+        padding:0;
+    }
+
+    /* Loading Page */
+    .loading-spinner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(8, 7, 7, 0.9);
+        display: flex;
+        justify-content: center;
+        padding-left: 25px; ;
+        align-items: center;
+        z-index: 12; /* Ensure it's above everything else*/
+      }
+    
+
 }
+
 
 .card {
     /* position: relative; */
@@ -339,7 +524,7 @@ z-index: 11; /* Arbitrarily high value */
 position: relative; /* z-index works on positioned elements */
 }
 
-/* Style for form inputs */
+/* Style for form inputs contract_form.html*/
 input.form-control,
 textarea.form-control {
   color: #000; /* or any color you prefer */
@@ -350,26 +535,8 @@ label.form-label {
   color: #fff; /* if you want the labels to be white */
 }
 
-.row {
-    margin-left: 200px
-}
-
-/* Loading Page */
-.loading-spinner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(8, 7, 7, 0.9);
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 700px; ;
-    align-items: center;
-    z-index: 12; /* Ensure it's above everything else */
-  }
   
-  .spinner {
+.spinner {
     border: 10px solid rgba(0, 0, 0, 0.1);
     width: 100px;
     height: 100px;

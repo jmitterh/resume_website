@@ -55,8 +55,31 @@ document.addEventListener('DOMContentLoaded', function() {
     Promise.all(markdownPromises).then(() => {
         hideSpinner();
         highlightActiveLink();
+
+  // Select the hamburger icon
+  const hamburger = document.getElementById('hamburger-menu');
+  const sidebar = document.querySelector('.sidebar');
+  const rows = document.querySelectorAll('.row'); // This selects all elements with the class .row
+
+  // Toggle the 'active' class on the sidebar when the hamburger icon is clicked
+  hamburger.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
+    rows.forEach(function(row) {
+        // Toggle class based on sidebar state
+        if (sidebar.classList.contains('active')) {
+            row.classList.add('row-sidebar-closed');
+        } else {
+            row.classList.remove('row-sidebar-closed');
+        }
+            });
     });
+
+  
+    });
+
+
 });
+
 // Fetch & Display Markdown
 function fetchAndDisplayMarkdown(elementId, filePath) {
     const element = document.getElementById(elementId);
@@ -127,3 +150,6 @@ function setActiveLink(event) {
     // Optionally, navigate to the href of the clicked link
     window.location.href = event.currentTarget.getAttribute('href');
 }
+
+
+
