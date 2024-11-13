@@ -1,5 +1,7 @@
 # Jean-Paul's Resume Website
 
+This website is a resume website that I created using HTML, CSS, and Javascript. It is hosted on [Bytehost](https://jpm.social-networking.me/).
+
 Website to showcase my resume
 
 ## Installation

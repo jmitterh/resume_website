@@ -1,0 +1,9 @@
+# Set ETag based on file properties and size for cache validation
+FileETag MTime Size
+
+# Set caching headers
+<IfModule mod_headers.c>
+  <filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "max-age=84600, public"
+  </filesMatch>
+</IfModule>

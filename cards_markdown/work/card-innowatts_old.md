@@ -1,25 +1,24 @@
-- Analyzed large datasets related to power, and energy consumption for different entities to identify trends, anomalies, and
-opportunities.
-- Developed interactive dashboards and reports using Power BI, Tableau, and Imply Pivot to support key business functions and
-client needs.
-- Leveraged Python (pandas, polars, plotly, matplotlib) to perform data manipulation and visualization, enhancing data-driven
-decision-making.
-- Configured Athena SQL queries and tables to process and analyze large datasets, improving data accessibility and reporting
-efficiency.
+- Developed and maintained cloud-based applications and services such as AWS, Apache Airflow, proprietary application, Apache
+Druid, Imply Pivot, focusing on data processing and analytics.
+- Utilized AWS services extensively for data storage, processing, and analytics. Configured Athena tables to interact with our energy
+application by creating autonomous reports based on clients needs for Forecast and Risk management.
 - Implemented proof of concept (POC) projects to generate and refine run-over-run processed forecast data and other novel datasets
 using Athena SQL.
-- Automated data pipelines and workflows using Apache Airflow, ensuring timely and accurate data delivery.
-- Conducted data diagnostics to identify unusual patterns or discrepancies in raw and processed datasets.
-- Compiled comprehensive and accurate client-facing reports on a timely basis, supporting forecast and risk management.
-- Ensured data integrity and accuracy through meticulous data validation and documentation.
-- Collaborated with cross-functional teams, including data scientists and stakeholders, to align data solutions with business
-objectives.
-- Authored detailed technical documentation and standard operating procedures in Confluence to support knowledge transfer and
-operational efficiency.
-- Presented bi-weekly progress updates using Agile methodologies with Jira, fostering internal awareness and demonstrations.
-- Proficient in SQL querying, writing complex queries to extract and transform data.
-- Experienced with AWS services (S3, Athena), Apache Druid, Imply Pivot, Apache Airflow, and Python scripting.
-- Managed data visualization tools and developed dynamic reports to support key business functions.
+- Conduct Data Diagnostics to identify any unusual patterns or discrepancies in both raw and processed datasets related to power
+and/or natural gas markets. Leverage AWS programmatic access and utilize tools such as Athena SQL or Pandas module to
+generate comprehensive reports for internal analysis. These reports provide valuable feedback that supports potential changes or
+improvements to the datasets.
+- Configured Apache Airflow DAGs for custom datasets to ingest via Apache Druid.
+- Authored detailed process documentation and standard operating procedures in Confluence, enhancing operational efficiency and
+supporting seamless knowledge transfer among team members.
+- Part of the Product team, applying Agile sprints bi-weekly with Jira to track stories. Present bi-weekly progress to create internal
+awareness and demonstrations.
+- Identify and resolve any issues that may arise during product-based processes. Document these issues to ensure uninterrupted
+operations. Using Kafka or logs from Rancher to review resource issues. Ensuring that our product-based processes operate
+seamlessly is achieved by identifying and addressing these issues.
+- Led the development of a Demo Platform using cloud-based applications such AWS S3, showcasing live, anonymized data for
+client interaction.
+- Expertise in data visualization using tools like Imply Pivot, matplotlib with Python, and PowerBI.
 
 ##### Project Experience
 Individual Project: Integration of Live Demo Dataset into Current Platform, Innowatts___________November 2022
