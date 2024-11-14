@@ -24,7 +24,7 @@ body {
 }
 
 /* If you still want to use ::before, then make sure you add a higher z-index to content that should be on top */
-.main-content, .main-content h1, .main-content p, .sidebar a, .sidebar .logo {
+.main-content, .sidebar, .main-content h1, .main-content p, .sidebar a, .sidebar .logo {
     position: relative;
     z-index: 1; /* Higher than the background z-index */
 }
@@ -44,6 +44,24 @@ body {
     color: transparent; /* Fallback for non-WebKit browsers */
 }
 
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #111; /* Darker than body background for contrast */
+    color: #fff;
+    padding-top: 5px; /* Reduced top padding */
+    padding: 20px 0;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .sidebar nav {
     display: flex;
@@ -93,7 +111,6 @@ body {
     
 }
 
-/* Style for hover navigation link */
 .nav-links a:hover {
     background-color: #e63946;
     /* background: linear-gradient(
@@ -111,13 +128,19 @@ body {
 
 /* JP logo effect */
 .logo {
-    margin: 0; 
-    padding: 0; 
+    margin-top: -0px; /* Adjust the value as needed to move it higher */
+    position: absolute; /* Position it absolutely within the sidebar */
+    top: 10px; /* Move it to 10px from the top or any value you see fit */
+    left: 5%; /* Center it horizontally */
+    transform: translateX(0); /* Adjust horizontal position to truly center it */
     font-size: 4em; /* Adjust the size as needed */
 }
 
 .logo h6 {
     text-decoration: none;
+    position: relative; /* Position it absolutely within the sidebar */
+    top: 0px; /* Move it to 10px from the top or any value you see fit */
+    left: -15px; /* Center it horizontally */
     transition: color 0.2s ease-in-out;
 }
 
@@ -135,12 +158,14 @@ body {
     width: 100%;
     
 }
+
 .socials a {
     color: #888; /* Icon color */
     font-size: 1.5em;
     margin-right: 10px;
     transition: color 0.2s ease-in-out;
 }
+
 .socials a:hover {
     color: #e63946; /* Icon hover color */
     transition: background-color 0.0s, color 1.0s;
@@ -158,6 +183,7 @@ body {
     display: inline-block;
     transform-style: preserve-3d;
 }
+
 .shadow-text-j::before, .shadow-text-j::after {
     content: 'J';
     position: absolute;
@@ -171,10 +197,12 @@ body {
     z-index: -1;
     transform-style: preserve-3d;
 }
+
 .shadow-text-j::before {
     transform: translateZ(-1px) skewY(-2deg);
     text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
 }
+
 .shadow-text-j::after {
     transform: translateZ(1px) skewY(2deg);
     text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
@@ -192,6 +220,7 @@ body {
     display: inline-block;
     transform-style: preserve-3d;
 }
+
 .shadow-text-p::before, .shadow-text-p::after {
     content: 'P';
     position: absolute;
@@ -205,10 +234,12 @@ body {
     z-index: -1;
     transform-style: preserve-3d;
 }
+
 .shadow-text-p::before {
     transform: translateZ(-1px) skewY(-2deg);
     text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
 }
+
 .shadow-text-p::after {
     transform: translateZ(1px) skewY(2deg);
     text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
@@ -226,6 +257,7 @@ body {
     width: calc(100% - 200px); /* Subtract the width of the sidebar */
     margin-bottom: -400px;
 }
+
 .main-content header {
     /* Ensure there's space for all elements */
     display: flex;
@@ -235,6 +267,7 @@ body {
     height: 100%;
     width: 200%
 }
+
 .main-content h1 {
     /* Adjust font size and weight as needed */
     font-size: 4em;
@@ -242,6 +275,7 @@ body {
     margin-bottom: 0.5em; /* Add space below the header */
     color: white; /* Ensure the text is white */
 }
+
 .main-content p {
     /* Subheading style */
     font-size: 1.2em;
@@ -341,10 +375,13 @@ body {
         color: white;
     }
 
+    /* .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
+        display: none;  /*Hide elements within the sidebar 
+    } */
     .logo {
         margin-top: 0px;
         top: 10px;
-        left: 5%;
+        left: 15%;
         transform: translateX(0);
         font-size: 4em;
     }
@@ -362,7 +399,6 @@ body {
         width: 100px; /* Adjust as needed */
         flex-direction: column;
         align-items: center;
-        display: flex;
         justify-content: space-between;
         transform: translateX(-100%); /* Start off-screen */
         transition: transform 0.3s ease-in-out;
