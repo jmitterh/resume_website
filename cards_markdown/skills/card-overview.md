@@ -1,12 +1,41 @@
 #### Professional Skills and Technologies Overview
 
-- As an adept Python Developer, my professional journey has been marked by a relentless pursuit of technological mastery and excellence in data-driven solutions. My expertise lies in sculpting robust, scalable code to empower business objectives, harnessing the prowess of large datasets to unlock actionable insights. My tenure in the industry has equipped me with a profound competency in the AWS ecosystem, enabling the creation of high-performance applications underpinned by vast data architectures.
+I am a Data Engineer and Analyst with 4+ years of experience building cloud based data solutions and applications. I have a B.S. in Computer Information Systems. My work centers on Python first development, reliable hourly and daily pipelines in AWS, clear documentation, and trustworthy analytics for business decisions.
 
-- My core technical proficiencies encompass a sophisticated command of the Python language, particularly its analytical powerhouse, the Pandas Module. I have crafted and wielded Imply Pivot Dashboards to distill complex data into lucid visual narratives and have honed my skills in web scraping with Selenium to gather and process web data efficiently. The AWS landscape is a familiar terrain where I orchestrate services to bolster data processing and storage capabilities.
+**Programming and Data**
+* Python with Pandas, Polars, NumPy
+* Data exploration and notebooks with Jupyter
+* Visualization with Matplotlib, Plotly, Seaborn
+* SQL for analytics using Athena and Presto, Postgres familiarity
+* Testing with pytest, version control with Git and Git Bash
+* Basic C and C++
 
-- In the realm of datastores, I've delved into Apache Druid for its analytical prowess and orchestrated daily updates and maintenance using Apache Airflow, ensuring the fidelity and freshness of data visualization. My endeavors in IoT, particularly with single-board computers like Raspberry Pi, have imbued me with insights into creating interconnected, intelligent environments.
+**Data Engineering**
+* ETL and ELT for files and APIs into an S3 based data lake using Parquet, CSV, JSON
+* Orchestration with Apache Airflow including DAG design, dependencies, and alerting
+* Data diagnostics, schema checks, and validation to protect data quality
+* PII handling using access controls and tokenization
+* Linux Ubuntu and SSH for daily operations
 
-- Database management and SQL form the backbone of my technical toolkit, allowing me to design, query, and manage complex data systems with ease. My journey has also been marked by the adept use of various software and frameworks such as Apache Airflow, Rancher, and Bootstrap, attesting to my versatile and comprehensive technical skill set.
+**Cloud and Infrastructure**
+* AWS services including S3, EC2, Athena
+* Containers with Docker, environment management with Rancher
+* GitOps workflows with FluxCD and Talos OS for Kubernetes
+* CI practices through code reviews and repeatable deployments
+* Azure exposure
+
+**Datastores and Query Engines**
+* Apache Druid and Imply Pivot for interactive analytics
+* Postgres familiarity for application and reporting use
+* Trino and Presto for federated queries
+
+**Analytics and BI**
+* Dashboards and reporting with Power BI, Tableau, and Imply Pivot
+* Storytelling with clear metrics, trends, and operational KPIs
+
+**Web and Data Collection**
+* FastAPI and Flask for simple services and data apps
+* Data gathering with Requests, BeautifulSoup, Scrapy, and Selenium
 
 #### Academic Learning and Applications
 

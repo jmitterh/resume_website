@@ -1,25 +1,18 @@
-- Analyzed large datasets related to power, and energy consumption for different entities to identify trends, anomalies, and
-opportunities.
-- Developed interactive dashboards and reports using Power BI, Tableau, and Imply Pivot to support key business functions and
-client needs.
-- Leveraged Python (pandas, polars, plotly, matplotlib) to perform data manipulation and visualization, enhancing data-driven
-decision-making.
-- Configured Athena SQL queries and tables to process and analyze large datasets, improving data accessibility and reporting
-efficiency.
-- Implemented proof of concept (POC) projects to generate and refine run-over-run processed forecast data and other novel datasets
-using Athena SQL.
-- Automated data pipelines and workflows using Apache Airflow, ensuring timely and accurate data delivery.
-- Conducted data diagnostics to identify unusual patterns or discrepancies in raw and processed datasets.
-- Compiled comprehensive and accurate client-facing reports on a timely basis, supporting forecast and risk management.
-- Ensured data integrity and accuracy through meticulous data validation and documentation.
-- Collaborated with cross-functional teams, including data scientists and stakeholders, to align data solutions with business
-objectives.
-- Authored detailed technical documentation and standard operating procedures in Confluence to support knowledge transfer and
-operational efficiency.
-- Presented bi-weekly progress updates using Agile methodologies with Jira, fostering internal awareness and demonstrations.
-- Proficient in SQL querying, writing complex queries to extract and transform data.
-- Experienced with AWS services (S3, Athena), Apache Druid, Imply Pivot, Apache Airflow, and Python scripting.
-- Managed data visualization tools and developed dynamic reports to support key business functions.
+-	Analyzed large energy datasets to identify trends and anomalies that informed strategic decisions and product enhancements; partnered with business stakeholders to clarify data needs and translate them into technical deliveries.
+-	Developed and maintained interactive dashboards and reports in Power BI, Tableau, and Imply Pivot (Druid), delivering clear, actionable insights to internal teams and clients.
+-	Leveraged Python (Pandas, Polars, Plotly, Matplotlib) to build reusable data transforms, validations, and utilities that improved data quality and accelerated analytics and reporting.
+-	Designed and executed complex SQL and configured Athena tables/partitions to enhance data accessibility, performance, and downstream modeling.
+-	Initiated and led POCs to refine forecast models and create new data products using Athena SQL; documented outcomes and folded successful patterns into standard workflows.
+-	Automated and optimized data workflows with Apache Airflow (DAG design, dependencies, alerting), improving freshness, reliability, and delivery SLAs for critical datasets.
+-	Performed rigorous data diagnostics and exception handling across raw and processed layers, increasing trust in metrics and reducing time-to-detect for upstream issues.
+-	Produced detailed, data-driven client reports supporting forecast management and risk assessment; presented findings and recommendations to stakeholders on a regular cadence.
+-	Maintained high standards of data integrity through validation frameworks, schema checks, and comprehensive documentation of assumptions, lineage, and runbooks.
+-	Collaborated cross-functionally with Product and Operations to align data solutions with user needs; contributed to design discussions and sprint planning to deliver on time.
+-	Authored and maintained technical documentation and SOPs in Confluence to enable repeatability and smooth hand-offs across teams.
+-	Reported progress bi-weekly using Agile practices in Jira; captured risks, blockers, and mitigation plans to keep initiatives on track.
+-	Managed AWS services (S3, Athena) and Apache Druid alongside BI tooling, standardizing patterns for ingestion from files/APIs into centralized analytics layers.
+-	Key Skills: Python (Pandas, Polars, Plotly, Matplotlib), SQL (Athena/Presto; Postgres exposure), ETL/ELT & Airflow, REST/API & file-based ingestion, Data Diagnostics & Validation, AWS (S3, Athena), Apache Druid/Imply Pivot, Power BI, Tableau, Agile (Jira), Documentation (Confluence)
+
 
 ##### Project Experience
 Individual Project: Integration of Live Demo Dataset into Current Platform, Innowatts___________November 2022

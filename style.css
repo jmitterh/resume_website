@@ -366,6 +366,7 @@ body {
         justify-content: space-between;
         transform: translateX(-100%); /* Start off-screen */
         transition: transform 0.3s ease-in-out;
+        /* margin-right: 10px; */
     }
 
 
@@ -425,6 +426,8 @@ body {
 
     p {
         font-size: x-small; /* Smaller font size */
+        /* padding:1px; */
+        padding:0px 0px 0px 10px;
     }
     /* Buttons letters small */
     .btn-group-sm>.btn, .btn-sm {
