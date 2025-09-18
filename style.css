@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+    box-sizing: border-box;
 }
 
 html {
@@ -11,39 +11,186 @@ html {
     color: rgb(10, 5, 5);
 }
 
+/* Theme Variables */
+:root {
+    --bg-primary: rgba(0, 0, 0, 0.9);
+    --bg-secondary: rgba(0, 0, 0, 0.9);
+    --bg-tertiary: rgba(0, 0, 0, 0.9);
+    --text-primary: #ffffff;
+    --text-secondary: #ccc;
+    --text-dark: #000000;
+    --sidebar-bg: #111111;
+    --card-bg: #343a40;
+    --accent-color: #e63946;
+    --gradient-start: #e66465;
+    --gradient-end: #9198e5;
+    --shadow-right: #ed1337;
+    --shadow-left: #09ebdc;
+    --hover-bg: #e63946;
+    --spinner-bg: rgba(8, 7, 7, 0.9);
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: rgba(248, 249, 250, 0.95);
+    --bg-tertiary: rgba(230, 230, 230, 1);
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-dark: #000000;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --accent-color: #007bff;
+    --gradient-start: #007bff;
+    --gradient-end: #6f42c1;
+    --shadow-right: #007bff;
+    --shadow-left: #6f42c1;
+    --hover-bg: #007bff;
+    --spinner-bg: rgba(255, 255, 255, 0.9);
+}
+
 body {
     position: relative;
     background: linear-gradient(
         to bottom, 
-        rgba(0, 0, 0, 1) 0%, 
-        rgba(0, 0, 0, 0.9) 50%, 
-        rgba(0, 0, 0, 1) 100%
+        var(--bg-primary) 0%, 
+        var(--bg-secondary) 50%, 
+        var(--bg-tertiary) 100%
     ), 
     url('background.png') no-repeat center center fixed; 
     background-size: cover;
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+/* Light theme background adjustments */
+[data-theme="light"] body {
+    background: linear-gradient(
+        135deg, 
+        var(--bg-primary) 0%, 
+        var(--bg-secondary) 50%, 
+        var(--bg-tertiary) 100%
+    ), 
+    url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+[data-theme="light"] body {
+    background: 
+        linear-gradient(rgba(248, 249, 250, .95), 
+        rgba(248, 249, 250, .95)),
+        url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: normal;
+}
+
+/* Additional light theme enhancements */
+[data-theme="light"] .sidebar {
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    border-right: 1px solid #e9ecef;
+}
+
+[data-theme="light"] .card {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef !important;
 }
 
 /* If you still want to use ::before, then make sure you add a higher z-index to content that should be on top */
 .main-content, .main-content h1, .main-content p, .sidebar a, .sidebar .logo {
     position: relative;
-    z-index: 1; /* Higher than the background z-index */
+    z-index: 1;
+}
+
+/* Logo container to hold logo and toggle */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* JP logo effect */
+.logo {
+    margin: 0; 
+    padding: 0; 
+    font-size: 4em;
+}
+/* Theme Toggle Styles */
+.theme-toggle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Reduced from 60px */
+    height: 20px; /* Reduced from 30px */
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.theme-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px; /* Reduced from 22px */
+    width: 14px; /* Reduced from 22px */
+    left: 3px; /* Adjusted for smaller size */
+    bottom: 3px; /* Adjusted for smaller size */
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .theme-slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .theme-slider:before {
+    transform: translateX(20px);
+}
+
+.theme-toggle-label {
+    color: var(--text-secondary);
+    font-size: 0.8em;
+    margin-bottom: 3px;
+    text-align: center;
 }
 
 /* Apply the gradient text effect only to elements with the 'gradient-text' class */
 .gradient-text {
-    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    background: -webkit-linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 /* For elements that should have the gradient clipped to the text */
 .shadow-text-j, .shadow-text-p {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback for non-WebKit browsers */
+    color: transparent;
 }
-
 
 .sidebar nav {
     display: flex;
@@ -51,7 +198,7 @@ body {
 }
 
 .sidebar a {
-    color: #ccc;
+    color: var(--text-secondary);
     text-decoration: none;
     margin-bottom: 10px;
     transition: color 0.2s ease-in-out;
@@ -60,24 +207,25 @@ body {
 .nav-links {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center nav-links items horizontally */
-    width: 100%; /* Ensure nav-links take the full width of the sidebar */
+    align-items: center;
+    width: 100%;
     padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #ddd;
+    color: var(--text-secondary);
     display: block;
-    width: 100%; /* Full width */
-    padding: 15px ; /* Apply padding here */
-    box-sizing: border-box; /* Include padding in width */
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
     margin: 0.5px 0;
+    transition: all 0.3s ease;
 }
 
 /* Style for active navigation link */
 .nav-links a.active {
-    background-color: #e63946;
+    background-color: var(--accent-color);
     color: #fff;
 }
 
@@ -85,35 +233,27 @@ body {
 .nav-links a p {
     text-decoration: none;
     position: static;
-    color: #ddd;
+    color: inherit;
     display: block;
-    padding: 10px 0px 10px 50px;/* Apply padding here */
-    box-sizing: border-box; /* Include padding in width */
+    padding: 10px 0px 10px 50px;
+    box-sizing: border-box;
     margin: 0px 0;
-    
 }
 
 /* Style for hover navigation link */
 .nav-links a:hover {
-    background-color: #e63946;
-    /* background: linear-gradient(
-        to bottom, 
-        rgb(15, 13, 13) 0%, 
-        rgba(150, 20, 20) 50%, 
-        rgb(29, 16, 16) 100%
-    ); */
+    background-color: var(--hover-bg);
     color: #fff;
     width: 100%; 
-    padding: 15px 15px; /* Apply padding here */
+    padding: 15px 15px;
     transition: background-color 2.3s, color 0.3s;
-
 }
 
 /* JP logo effect */
 .logo {
     margin: 0; 
     padding: 0; 
-    font-size: 4em; /* Adjust the size as needed */
+    font-size: 4em;
 }
 
 .logo h6 {
@@ -122,10 +262,9 @@ body {
 }
 
 .logo h6:hover {
-    color: #e63946; /*Hover color for links */
+    color: var(--accent-color);
     transition: background-color 0.0s, color 1.3s;
 }
-
 
 /* Social icons */
 .socials {
@@ -133,16 +272,17 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    
 }
+
 .socials a {
-    color: #888; /* Icon color */
+    color: var(--text-secondary);
     font-size: 1.5em;
     margin-right: 10px;
     transition: color 0.2s ease-in-out;
 }
+
 .socials a:hover {
-    color: #e63946; /* Icon hover color */
+    color: var(--accent-color);
     transition: background-color 0.0s, color 1.0s;
 }
 
@@ -151,33 +291,36 @@ body {
     font-size: 1em;
     color: transparent;
     position: relative;
-    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    background: -webkit-linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     transform-style: preserve-3d;
 }
+
 .shadow-text-j::before, .shadow-text-j::after {
     content: 'J';
     position: absolute;
     top: 0;
     left: 0;
     color: transparent;
-    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    background: -webkit-linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     z-index: -1;
     transform-style: preserve-3d;
 }
+
 .shadow-text-j::before {
     transform: translateZ(-1px) skewY(-2deg);
-    text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
+    text-shadow: 2px 2px 0 var(--shadow-right);
 }
+
 .shadow-text-j::after {
     transform: translateZ(1px) skewY(2deg);
-    text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
+    text-shadow: -2px -2px 0 var(--shadow-left);
 }
 
 /* P color effect for Jean Paul*/
@@ -185,49 +328,52 @@ body {
     font-size: 1em;
     color: transparent;
     position: relative;
-    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    background: -webkit-linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     transform-style: preserve-3d;
 }
+
 .shadow-text-p::before, .shadow-text-p::after {
     content: 'P';
     position: absolute;
     top: 0;
     left: 0;
     color: transparent;
-    background: -webkit-linear-gradient(to right, #e66465, #9198e5);
+    background: -webkit-linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     z-index: -1;
     transform-style: preserve-3d;
 }
+
 .shadow-text-p::before {
     transform: translateZ(-1px) skewY(-2deg);
-    text-shadow: 2px 2px 0 #ed1337; /* Right shadow #ed1337*/
+    text-shadow: 2px 2px 0 var(--shadow-right);
 }
+
 .shadow-text-p::after {
     transform: translateZ(1px) skewY(2deg);
-    text-shadow: -2px -2px 0 #09ebdc; /* Left shadow #09ebdc*/
+    text-shadow: -2px -2px 0 var(--shadow-left);
 }
 
 /* Main content styling */
 .main-content {
-    margin-left: 120px; /* Should match sidebar width */
+    margin-left: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
     text-align: center;
-    width: calc(100% - 200px); /* Subtract the width of the sidebar */
+    width: calc(100% - 200px);
     margin-bottom: -400px;
 }
+
 .main-content header {
-    /* Ensure there's space for all elements */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -235,66 +381,86 @@ body {
     height: 100%;
     width: 200%
 }
+
 .main-content h1 {
-    /* Adjust font size and weight as needed */
     font-size: 4em;
     font-weight: bold;
-    margin-bottom: 0.5em; /* Add space below the header */
-    color: white; /* Ensure the text is white */
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
 }
+
 .main-content p {
-    /* Subheading style */
     font-size: 1.2em;
-    color: white; /* Ensure the subheading text is white */
-    margin-bottom: 1em; /* Add space below the subheading */
+    color: var(--text-primary);
+    margin-bottom: 1em;
+}
+
+/* Card styling */
+.card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.card-header {
+    background-color: var(--card-bg) !important;
+    border-bottom: 1px solid var(--text-secondary);
+    color: var(--text-primary) !important;
+}
+
+.card-body {
+    color: var(--text-primary) !important;
+}
+
+.card-title {
+    color: var(--text-primary) !important;
 }
 
 /* Desktop view - Responsive adjustments */
 @media (min-width: 769px) {
-
     .sidebar.active {
         transform: translateX(0);
     }
 
     .sidebar {
         z-index: 1000;
-        background-color: #111; /* Darker than body background for contrast */
-        color: #fff;
-        padding-top: 5px; /* Reduced top padding */
+        background-color: var(--sidebar-bg);
+        color: var(--text-primary);
+        padding-top: 5px;
         padding: 20px 0;
         min-height: 100vh;
         position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
-        width: 200px; /* Adjust as needed */
+        width: 200px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        transition: all 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    [data-theme="light"] .sidebar {
+        border-right: 1px solid #e9ecef;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     }
 
     .sidebar .sidebar nav, .sidebar .nav-links p .socials  {
-        display: flex;  /*Hide elements within the sidebar */
+        display: flex;
     }
 
     .sidebar .logo {
-        display: block; /* or flex, depending on your layout*/
-    }
-
-    .main-content p {
-        /* Subheading style */
-        font-size: 1.2em;
-        color: white; /* Ensure the subheading text is white */
-        margin-bottom: 1em; /* Add space below the subheading */
+        display: block;
     }
 
     .nav-links a, .socials a {
-        font-size: 1.2em; /* Larger font size for touch targets */
+        font-size: 1.2em;
     }
 
     label.form-label {
-        color: #ccc; /* Light color for labels */
+        color: var(--text-secondary);
     }
 
     /* Make room for side bar */
@@ -303,42 +469,45 @@ body {
     }
 
     .title h1  {
-        color: white;
+        color: var(--text-primary);
         padding: 150px 0% 0% 0%;
     }
 
-/* Loading Page */
-.loading-spinner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(8, 7, 7, 0.9);
-    display: flex;
-    justify-content: center;
-    padding-left: 250px; ;
-    align-items: center;
-    z-index: 12; /* Ensure it's above everything else*/
-  }
-
+    /* Loading Page */
+    .loading-spinner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--spinner-bg);
+        display: flex;
+        justify-content: center;
+        padding-left: 250px;
+        align-items: center;
+        z-index: 12;
+    }
 }
 
 /* Hamburger Menu Icon Styling */
 .hamburger {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 15px;
     left: 15px;
-    z-index: 1002; /* Above the sidebar */
-    cursor: pointer; /* Changes the mouse cursor when hovering over the icon */
-  }
-  
+    z-index: 1002;
+    cursor: pointer;
+}
+
 /* Mobile View - Show hamburger icon on smaller screens */
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show the hamburger icon */
-        color: white;
+        display: block;
+        color: var(--text-primary);
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
     }
 
     .logo {
@@ -348,44 +517,51 @@ body {
         transform: translateX(0);
         font-size: 4em;
     }
+    
+    .theme-toggle-container {
+        margin-top: 5px;
+    }
 
     .sidebar {
-        background-color: #111; /* Darker than body background for contrast */
-        color: #fff;
-        padding-top: 5px; /* Reduced top padding */
+        background-color: var(--sidebar-bg);
+        color: var(--text-primary);
+        padding-top: 5px;
         padding: 20px 0;
         min-height: 100vh;
         position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
-        width: 100px; /* Adjust as needed */
+        width: 100px;
         flex-direction: column;
         align-items: center;
         display: flex;
         justify-content: space-between;
-        transform: translateX(-100%); /* Start off-screen */
+        transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
-        /* margin-right: 10px; */
     }
 
+    [data-theme="light"] .sidebar {
+        border-right: 1px solid #e9ecef;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
 
     /* Sidebar Active State */
     .sidebar.active {
-        z-index: 1000; /* Ensure sidebar is above other elements */
-        transform: translateX(0%); /* Slide out */
-        transition: transform 0.3s ease-in-out; /* Smooth transition for sliding in and out */
+        z-index: 1000;
+        transform: translateX(0%);
+        transition: transform 0.3s ease-in-out;
     }
 
     .main-content {
-        margin-left: 0px; /* Should match sidebar width */
+        margin-left: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100vh;
         text-align: center;
-        width: calc(130% - 100px); /* Adjust for the header vs sidebar*/
+        width: calc(130% - 100px);
         margin-bottom: -400px;
     }
 
@@ -396,11 +572,11 @@ body {
     }
 
     header, .col-12.w-auto.p-3 {
-      flex: 1 0 auto; /* This means the items can grow if needed, but won't shrink smaller than their content */
+        flex: 1 0 auto;
     }
 
     header {
-        margin-bottom: 2vh; /* Use viewport height to be responsive */
+        margin-bottom: 2vh;
     }
       
     .col-12.w-auto.p-3 {
@@ -409,26 +585,26 @@ body {
 
     .main-content header{
         margin-left: -20px;
-        padding: 0px; /* Add padding */
-        width: 100%; /* Take full width */
-        height: 0%; /* Adjust height */
+        padding: 0px;
+        width: 100%;
+        height: 0%;
     }
 
     .main-content h1 {
-        display: block; /* Ensure it's not set to 'none' */
-        font-size: 2em; /* Adjust as needed for mobile */
-        color: #fff; /* Adjust color if needed */
+        display: block;
+        font-size: 2em;
+        color: var(--text-primary);
     }
     
     .h1, h1 {
-        color: white;
+        color: var(--text-primary);
     }
 
     p {
-        font-size: x-small; /* Smaller font size */
-        /* padding:1px; */
+        font-size: x-small;
         padding:0px 0px 0px 10px;
     }
+
     /* Buttons letters small */
     .btn-group-sm>.btn, .btn-sm {
         font-size: x-small; 
@@ -438,7 +614,7 @@ body {
     .nav-links a p {
         text-decoration: none;
         position: static;
-        color: #ddd;
+        color: inherit;
         display: block;
         padding: 10px 0px 10px 5px;
         box-sizing: border-box;
@@ -452,7 +628,7 @@ body {
     }
 
     .row-sidebar-closed {
-        margin-left: 80px; /* Set to 0 or whatever value you prefer when sidebar is hidden */
+        margin-left: 80px;
         transition: margin-left 0.3s ease-in-out; 
     }
 
@@ -469,50 +645,65 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(8, 7, 7, 0.9);
+        background: var(--spinner-bg);
         display: flex;
         justify-content: center;
-        padding-left: 25px; ;
+        padding-left: 25px;
         align-items: center;
-        z-index: 12; /* Ensure it's above everything else*/
-      }
-    
-
+        z-index: 12;
+    }
 }
-
 
 .card {
-    /* position: relative; */
-    z-index: 10; /* Any value higher than the sidebar's z-index */
-  }
-
-#contact {
-z-index: 11; /* Arbitrarily high value */
-position: relative; /* z-index works on positioned elements */
+    position: relative;
+    z-index: 10;
 }
 
-/* Style for form inputs contract_form.html*/
+#contact {
+    z-index: 11;
+    position: relative;
+}
+
+/* Style for form inputs contact_form.html*/
 input.form-control,
 textarea.form-control {
-  color: #000; /* or any color you prefer */
+    color: var(--text-dark);
+    background-color: var(--bg-primary);
+    border-color: var(--text-secondary);
+}
+
+[data-theme="light"] input.form-control,
+[data-theme="light"] textarea.form-control {
+    color: var(--text-dark);
+    background-color: #ffffff;
 }
 
 /* Style for form labels */
 label.form-label {
-  color: #fff; /* if you want the labels to be white */
+    color: var(--text-primary);
 }
 
-  
+/* Button styling */
+.btn-primary {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.btn-info {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
 .spinner {
     border: 10px solid rgba(0, 0, 0, 0.1);
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border-left-color: #09f;
+    border-left-color: var(--accent-color);
     animation: spin 1s ease infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  } 
+}
