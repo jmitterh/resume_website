@@ -1,2 +1,0 @@
-- Tasked to analyze, update, and report Geologic Information System data to remove redundant cell tower carrier information. Updated cell tower information; improves 911 emergency call center for 8 out of 13 counties in the Houston and Galveston area.
-- After cell tower data is updated, contact address coordinators to make revisions of cell tower addresses within counties.  Finalization of the update process is complete for cell tower information, granting 911 dispatchers accurate cell phone user’s location.

@@ -1,5 +1,0 @@
-- Collaborated as a key member on five project teams dedicated to managing and supporting applications for our esteemed client, Johnson Control International.
-- Efficiently operated the ITSM ticketing system, ensuring meticulous tracking of the progression and timely completion of incident/service requests for each supported application.
-- Acted as the primary coordinator and liaison for MicroFocus Quality Control and Performance Center Software, ensuring seamless communication and operations.
-- Diligently maintained and supported the daily operations of the enterprise content management platform, OpenText Documentum.
-- Contributed as an active member of the scrum team, focusing on monitoring, developing, and deploying updates for marketing sites, including Tyco Integrated Security, SimplexGrinnell, and Integrated Fire & Security.
