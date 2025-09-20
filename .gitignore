@@ -96,3 +96,6 @@ cards_markdown/
 
 # background
 *.png
+
+# admin php
+admin.php
