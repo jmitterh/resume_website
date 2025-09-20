@@ -33,16 +33,16 @@ Visit the live website: [jpm.social-networking.me](https://jpm.social-networking
 ## 📁 Project Structure
 
 ```
-├── index.html                 # Landing page
+├── index.html                # Landing page
+├── admin.php                 # admin page to view email msgs
 ├── about.html                # About me page
 ├── my_skills.html            # Skills and education
 ├── work.html                 # Work experience
-├── contact.html              # Contact information
-├── contact_form.html         # Contact form (alternative)
+├── contact_form.html         # Contact form
 ├── sidebar.html              # Reusable sidebar component
 ├── style.css                 # Main stylesheet with theme system
 ├── script.js                 # JavaScript functionality
-├── sendemail.php            # Email handling (not implemented)
+├── sendemail_form.php        # Email handling
 ├── background.png           # Circuit board background image
 ├── .htaccess               # Apache server configuration
 ├── cards_markdown/         # Content directory
@@ -119,6 +119,7 @@ The website uses CSS custom properties for comprehensive theming:
    git clone [repository-url]
    cd portfolio
    ```
+   > Create cards_markdown/ add about|skills|work experience here via Mark-Down Language. You'll also need to create an admin.php page to view emails messages.
 
 2. **Install Live Server Extension** (VS Code)
    - Install "Live Server" extension
@@ -208,15 +209,17 @@ This project is licensed under the [MIT License](https://choosealicense.com/lice
 ## 🔮 Future Enhancements
 
 - [ ] Blog section implementation
-- [ ] Contact form backend integration
+- [x] Contact form backend integration
 - [ ] SEO optimization and meta tags
-- [ ] Analytics integration
-- [ ] Performance monitoring
 - [ ] Accessibility improvements (WCAG compliance)
 - [ ] Progressive Web App (PWA) features
 - [ ] Multi-language support
 
 ## 📈 Changelog
+
+### Version 3.0 - Current
+- ✅ Created backend form messages
+- ✅ added admin page with password restrictions
 
 ### Version 2.0 - Current
 - ✅ Added dark/light theme toggle
@@ -234,7 +237,7 @@ This project is licensed under the [MIT License](https://choosealicense.com/lice
 
 ---
 
-*Built with ❤️ by Jean Paul Mitterhofer - Data Engineer & Python Developer*
+*Built by Jean Paul Mitterhofer - Data Engineer & Python Developer*
 
 
 ## Usage
