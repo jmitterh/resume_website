@@ -1,0 +1,23 @@
+
+User-agent: *
+Disallow: /admin_messages.php
+Disallow: /sendemail_form.php
+Disallow: /messages/
+Disallow: /.htaccess
+Disallow: /contact_form.html
+
+# Allow main pages
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /my_skills.html
+Allow: /work.html
+Allow: /contact.html
+Allow: /style.css
+Allow: /script.js
+Allow: /sidebar.html
+
+# Block common sensitive files
+Disallow: *.php$
+Disallow: *.log$
+Disallow: *.json$
