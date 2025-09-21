@@ -100,3 +100,4 @@ cards_markdown/
 # admin php and sendemail_form.php
 admin.php
 sendemail_form.php
+api_messages.php
